@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Preethika 🎉</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .birthday-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .birthday-image {
+      width: 250px;
+      max-width: 90%;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .special-line {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #fff;
+      background: #ff4081;
+      padding: 0.6rem 1rem;
+      border-radius: 15px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .message-block {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 20px;
+      max-width: 700px;
+      color: #fffbea;
+      font-size: 1.1rem;
+      box-shadow: 0 0 40px rgba(255, 192, 203, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    #translateBtn, #playMusicBtn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      background: #fff0f5;
+      color: #ff1493;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #translateBtn:hover, #playMusicBtn:hover {
+      background: #ff1493;
+      color: #fff;
+    }
+
+    .balloons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background-color: #ff6f91;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.8;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+    }
+    
+    .music-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .volume-slider {
+      width: 100px;
+      appearance: none;
+      height: 6px;
+      background: #ffb6c1;
+      border-radius: 5px;
+      outline: none;
+    }
+    
+    .volume-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #ff1493;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Audio Player (locally added) -->
+  <audio id="birthdayAudio" src="song.mp3" preload="auto"></audio>
+
+  <!-- 🎉 Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    setInterval(() => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ff4081', '#ffd700', '#00e5ff']
+      });
+    }, 3000);
+  </script>
+
+  <!-- 🎈 Balloons -->
+  <div class="balloons" id="balloons"></div>
+
+  <!-- 🎁 Main Content -->
+  <div class="birthday-container">
+    <h1><strong>🎉 Happy Birthday Preethika 🎂</strong></h1>
+
+    <img src="https://i.postimg.cc/9QRd9mHD/preethika.jpg" alt="Birthday Wish" class="birthday-image">
+
+    <p class="special-line">The very first girl I saw in my childhood and fell for her ❤️</p>
+
+    <div class="message-block">
+      <p id="line1">You're not just special because it's your birthday – you're special every day to me. 💖🌟😊</p>
+      <p id="line2">Even when you avoid me or pretend not to care, my heart still reflects care and kindness for you. 💘</p>
+      <p id="line3">No matter how much you push me away, I'll always wish you happiness, because my care for you has no end. 💫💝</p>
+       <p style="font-size: 20px; color: #ff69b4; font-style: italic;">
+    Every time you walk toward me, my heart skips a beat,<br>
+    my stomach panics like it’s facing a final exam,<br>
+    and my hands and legs… they start shivering.<br>
+    You’re the first girl who made me feel this way. <br>
+  </p>
+   <p style="font-size: 20px; color: #ffffcc; font-weight: 600;">
+    👩‍⚕️ Congratulations on becoming the best doctor! and I always knew you were destined for greatness. 💐🩺
+  </p>
+    </div>
+
+    <button onclick="toggleTranslation()" id="translateBtn">Translate to Tamil</button>
+    
+    <div class="music-control">
+      <button onclick="toggleMusic()" id="playMusicBtn">Play Music 🎵</button>
+      <input type="range" min="0" max="100" value="70" class="volume-slider" id="volumeControl" title="Volume">
+    </div>
+  </div>
+
+  <script>
+    const colors = ['#ff6f91', '#ff9671', '#ffc75f', '#f9f871', '#a1de93', '#cbaacb'];
+    const container = document.getElementById('balloons');
+
+    for (let i = 0; i < 30; i++) {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * 100 + '%';
+      balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      balloon.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      balloon.style.animationDelay = (Math.random() * 5) + 's';
+      container.appendChild(balloon);
+    }
+
+    let isTamil = false;
+
+    function toggleTranslation() {
+      const line1 = document.getElementById('line1');
+      const line2 = document.getElementById('line2');
+      const line3 = document.getElementById('line3');
+      const btn = document.getElementById('translateBtn');
+
+      if (!isTamil) {
+        line1.innerText = "இன்று உங்கள் பிறந்த நாள் என்பதற்காக மட்டுமல்ல, நீங்கள் எனக்கு தினமும் சிறப்பானவள்தான் 💖🌟😊";
+        line2.innerText = "நீ எவ்வளவு தவிர்ந்தாலும் கூட, எனது மனம் எப்போதும் உனக்காக அக்கறையும் கனிவும் காட்டும் 💘";
+        line3.innerText = "நீ என்னை தள்ளிச் சென்றாலும், உன் மகிழ்ச்சியை நான் எப்போதும் விரும்புவேன், ஏனெனில் என் அக்கறைக்கு முடிவில்லை 💫💝";
+        btn.innerText = "Translate to English";
+      } else {
+        line1.innerText = "You're not just special because it's your birthday – you're special every day to me. 💖🌟😊";
+        line2.innerText = "Even when you avoid me or pretend not to care, my heart still reflects care and kindness for you. 💘";
+        line3.innerText = "No matter how much you push me away, I'll always wish you happiness, because my care for you has no end. 💫💝";
+        btn.innerText = "Translate to Tamil";
+      }
+
+      isTamil = !isTamil;
+    }
+
+    // Set up the audio element
+    const audio = document.getElementById("birthdayAudio");
+    const volumeControl = document.getElementById("volumeControl");
+    const playMusicBtn = document.getElementById("playMusicBtn");
+    let isPlaying = false;
+    
+    // Set loop property
+    audio.loop = true;
+    
+    // Initialize volume
+    audio.volume = volumeControl.value / 100;
+    
+    // Volume control event
+    volumeControl.addEventListener("input", function() {
+      audio.volume = this.value / 100;
+    });
+
+    // Toggle music play/pause
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        playMusicBtn.innerText = "Play Music 🎵";
+        isPlaying = false;
+      } else {
+        audio.play()
+          .then(() => {
+            playMusicBtn.innerText = "Pause Music 🎵";
+            isPlaying = true;
+          })
+          .catch(error => {
+            console.log("Error playing audio:", error);
+          });
+      }
+    }
+
+    // Preload the audio file when page loads
+    window.addEventListener('load', function() {
+      // Set basic audio properties
+      audio.loop = true;
+    });
+  </script>
+</body>
+</html>
